@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        head {
+            width: 100%;
+            height: 176px;
+        }
+
+        .yx-cp-m-siteNav {
+            width: 100%;
+            height: 36px;
+            background-color: #333;
+        }
+
+        .yx-cp-row {
+            width: 1090px;
+            height: 36px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .yx-cp-m-noticeList {
+            margin-left: 2px;
+            overflow: hidden;
+            height: 36px;
+            line-height: 36px;
+        }
+
+        .yx-cp-noticeTxt {
+            color: #CC9756;
+            font-size: 12px;
+        }
+
+        .yx-cp-noticeTxt:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+        .yx-cp-siteNav-r {
+            height: 36px;
+            float: right;
+        }
+
+        .yx-cp-siteNav-r li {
+            float: left;
+        }
+
+        .yx-cp-siteNav-r li>a {
+            color: #cccccc;
+            padding: 0 3px 0 3px;
+        }
+
+        .yx-cp-siteNav-r li>a:hover {
+            color: white;
+            text-decoration: none;
+        }
+
+        .yx-cp-siteNav-r li>span {
+            color: #5c5c5c;
+            padding: 0 3px 0 3px;
+        }
+
+        .glyphicon-phone:before {
+            color: #cccccc;
+        }
+
+        .yx-cp-m-funcTab {
+            width: 100%;
+            height: 140px;
+            background-color: #fff;
+            box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2);
+        }
+
+        .yx-cp-row {
+            width: 1090px;
+            height: 100%;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .icon-yxtop-logo {
+            position: absolute;
+            top: 3px;
+            left: 0;
+            background: url(../image/logo.gif) no-repeat;
+            background-position: 1px -8px;
+            height: 104px;
+            width: 302px;
+        }
+
+        .yx-cp-m-search {
+            width: 532px;
+            height: 36px;
+            position: relative;
+            margin-top: 26px;
+            float: right;
+            width: 532px;
+            height: 36px;
+        }
+
+        .icon-yxtop-search-gray {
+            height: 14px;
+            width: 14px;
+            background: url(../image/spr.webp) no-repeat;
+            background-position: 0 -518px;
+            position: absolute;
+            left: 18px;
+            top: 12px;
+            z-index: 1;
+        }
+
+        .yx-cp-searchInput {
+            width: 442px;
+            height: 38px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            line-height: 38px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            border: 1px solid #CC9756;
+            border-radius: 19px;
+            font-size: 14px;
+            padding-left: 38px;
+            outline: 0;
+            overflow: hidden;
+
+        }
+
+        .yx-cp-searchButton {
+            width: 90px;
+            height: 38px;
+            background-color: #CC9756;
+            border-top-right-radius: 19px;
+            border-bottom-right-radius: 19px;
+            cursor: pointer;
+            float: right;
+            color: #fff;
+            line-height: 38px;
+            text-align: center;
+            font-size: 16px;
+            letter-spacing: 1px;
+            position: absolute;
+            right: 90px;
+        }
+
+        .yx-cp-m-cartEnterWrap {
+            width: 134px;
+            height: 38px;
+            position: relative;
+            margin-top: 26px;
+            margin-left: 49px;
+            float: right;
+            z-index: 4;
+            cursor: pointer;
+            border: 1px solid #CC9756;
+            border-radius: 19px;
+            padding: 8px 0;
+        }
+
+        .yx-cp-icon-yxtop {
+            display: inline-block;
+            height: 18px;
+            width: 18px;
+            margin-left: 22px;
+            background: url(../image/spr.webp) no-repeat;
+            background-position: 0 -148px;
+        }
+
+        .yx-cp-cartName {
+            color: #CC9756;
+            margin-left: 5px;
+            margin-top: -1px;
+            font-size: 14px;
+        }
+
+        .j-cart-num {
+            display: inline-block;
+            height: 19px;
+            width: 19px;
+            margin-top: -1px;
+            color: #fff;
+            text-align: center;
+            line-height: 20px;
+            z-index: 1;
+            margin-left: 10px;
+            background: url(../image/spr.webp) no-repeat;
+            background-position: 0 -51px;
+        }
+
+        .yx-cp-m-tabNav {
+            width: 100%;
+            height: 30px;
+            line-height: 1;
+            font-weight: 700;
+            position: absolute;
+            bottom: 15px;
+
+        }
+
+        .yx-cp-m-tabNav>li {
+            float: left;
+            margin-top: 27px;
+            padding: 5px 25px;
+            font-size: 14px;
+        }
+
+        .yx-cp-m-tabNav>li>a {
+            color: #000;
+        }
+
+        .yx-cp-m-tabNav>li>a:hover {
+            color: #CC9756;
+            border-bottom: 3px solid #CC9756;
+            padding-bottom: 7px;
+        }
+
+        .yx-cp-active {
+            color: #CC9756 !important;
+            border-bottom: 3px solid #CC9756;
+            padding-bottom: 7px;
+        }
+
+        .yx-cp-firstItem {
+            padding-left: 0px !important;
+        }
+
+        .yx-cp-lastItem {
+            padding-right: 0px !important;
+        }
+
+        .yx-cp-tabNav-split {
+            border-left: 1px solid #ccc;
+            height: 14px;
+        }
+
+        /* hover效果 */
+        .yx-cp-tabNav-dropdown {
+            width: 1202px;
+            height: 405px;
+            left: -56px;
+            right: auto;
+            display: none;
+            position: absolute;
+            top: 56px;
+            z-index: 99;
+        }
+
+        .yx-cp-cateGroupList {
+            width: 1202px;
+            /* height: 405px; */
+            padding: 14px 20px 20px;
+            background: #fff;
+            overflow: hidden;
+            /* border: 1px solid rgba(0, 0, 0, .1); */
+        }
+
+        .yx-cp-cateGroupList li:nth-child(8) {
+            margin-right: 0;
+        }
+
+        .display-block-li:hover .yx-cp-tabNav-dropdown {
+            display: block;
+        }
+
+        .yx-cp-cateGroup {
+            width: 124px;
+            float: left;
+            margin-right: 24px;
+        }
+
+        .yx-cp-cateGroup>a>img {
+            display: inline-block;
+            height: 50px;
+            width: 50px;
+        }
+
+        .yx-cp-cateGroup-name {
+            max-width: 124px;
+            width: 124px;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 36px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .yx-cp-cateGroup>a>span {
+            width: 70px;
+            max-width: 70px;
+            max-height: 48px;
+            margin-left: 4px;
+            font-size: 14px;
+            vertical-align: middle;
+            line-height: 1.2;
+            overflow: hidden;
+            word-wrap: break-word;
+            color: #333;
+        }
+
+        .yx-cp-cateGroup-name-a {
+            display: block;
+            white-space: nowrap;
+        }
+
+        .yx-cp-cateGroup-name-a>span:hover {
+            text-decoration: none;
+            color: #CC9756;
+        }
+
+        /* 头部固定 */
+        .yx-cp-m-funcTab-fixed {
+            width: 100%;
+            height: 50px;
+            background: pink;
+            display: none;
+            position: fixed;
+            top: 0;
+        }
+
+        .yx-cp-m-funcTab-fixed>.yx-cp-row {
+            height: 50px;
+        }
+
+        .icon-yxtop-miniLogo {
+            display: inline-block;
+            width: 126px;
+            height: 30px;
+            background: url(../image/spr.webp) no-repeat;
+            background-position: 0 -438px;
+            position: absolute;
+            top: 15px;
+        }
+
+        .yx-cp-m-funcTab-fixed .yx-cp-m-tabNav {
+            left: 145px;
+        }
+
+        .yx-cp-m-funcTab-fixed .yx-cp-m-tabNav>li {
+            padding: 0px 18px;
+        }
+    </style>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/swiper.min.css">
+    <script src="../js/swiper.min.js"></script>
+</head>
+
+<body>
+    <headr>
+        <div class="yx-cp-m-siteNav">
+            <div class="yx-cp-row">
+                <div class="yx-cp-m-noticeList">
+                    <img src="../image/1.gif" alt="">
+                    <u class="yx-cp-noticeTxt yx-f-text-underline">用银行卡在严选购物，最高随机直减99元</u>
+                    <ul class="yx-cp-siteNav-r">
+                        <li><a>登录/注册</a><span>|</span></li>
+
+                        <li><a>我的订单</a><span>|</span></li>
+
+                        <li><a>会员</a><span>|</span></li>
+
+                        <li><a>甄选家</a><span>|</span></li>
+
+                        <li><a>企业采购</a><span class="glyphicon glyphicon-menu-down"></span><span>|</span></li>
+
+                        <li><a>客户服务</a><span class="glyphicon glyphicon-menu-down"></span><span>|</span></li>
+                        <li><span class="glyphicon glyphicon-phone"></span><a>APP</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="yx-cp-m-funcTab j-yx-cp-m-funcTab">
+            <div class="yx-cp-row">
+                <span class="icon-yxtop-logo"></span>
+                <div class="yx-cp-m-cartEnterWrap">
+                    <span class="yx-cp-icon-yxtop"></span>
+                    <span class="yx-cp-cartName">购物车</span>
+                    <span class="j-cart-num">0</span>
+                </div>
+
+                <div class="yx-cp-m-search">
+                    <i class="icon-yxtop-search-gray"></i>
+                    <input type="text" class="yx-cp-searchInput" placeholder="经典款行李箱">
+                    <div class="yx-cp-searchButton">搜索</div>
+                    <div class="hotKeywordListWrap"></div>
+                </div>
+                <ul class="yx-cp-m-tabNav">
+                    <!-- <li class="yx-cp-firstItem"><a href="" class="yx-cp-active ">首页</a></li>
+                    <li class="display-block-li">
+                        <a href="">居家生活</a>
+                        <div class="yx-cp-tabNav-dropdown">
+                            <ul class="yx-cp-cateGroupList">
+                                <li class="yx-cp-cateGroup">
+                                    <div class="yx-cp-cateGroup-name">秋冬好物</div>
+                                    <a href="">
+                                        <img src="../image/13.webp" alt="">
+                                        <span>秋冬好物</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="display-block-li"><a href="">服饰鞋包</a></li>
+                    <li class="display-block-li"><a href="">美食酒水</a></li>
+                    <li class="display-block-li"><a href="">个护清洁</a></li>
+                    <li class="display-block-li"><a href="">母婴亲子</a></li>
+                    <li class="display-block-li"><a href="">运动旅行</a></li>
+                    <li class="display-block-li"><a href="">数码家电</a></li>
+                    <li class="display-block-li"><a href="">全球特色</a></li>
+                    <li class="yx-cp-tabNav-split"><a href="">为你严选</a></li>
+                    <li class="yx-cp-lastItem"><a href="">众筹</a></li> -->
+
+                </ul>
+            </div>
+
+        </div>
+        <!-- 头部固定 -->
+        <div class="yx-cp-m-funcTab-fixed">
+            <div class="yx-cp-row">
+                <i class="icon-yxtop-miniLogo"></i>
+                <ul class="yx-cp-m-tabNav">
+                    <li class="yx-cp-firstItem"><a href="" class="yx-cp-active ">首页</a></li>
+                    <li><a href="">居家生活</a></li>
+                    <li><a href="">服饰鞋包</a></li>
+                    <li><a href="">美食酒水</a></li>
+                    <li><a href="">个护清洁</a></li>
+                    <li><a href="">母婴亲子</a></li>
+                    <li><a href="">运动旅行</a></li>
+                    <li><a href="">数码家电</a></li>
+                    <li><a href="">全球特色</a></li>
+
+                </ul>
+            </div>
+
+        </div>
+    </headr>
+</body>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/header.js"></script>
+<script>
+    var swiper1 = new Swiper('.swiper-container', {
+        loop: true,
+        autoplay: true,
+        spaceBetween: 30,
+        effect: 'fade',
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+    });
+
+
+</script>
+
+</html>

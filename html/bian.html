@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>侧边</title>
+    <style>
+        html,
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        div,
+        dl,
+        dt,
+        dd,
+        ul,
+        ol,
+        li,
+        p,
+        blockquote,
+        pre,
+        hr,
+        figure,
+        table,
+        caption,
+        th,
+        td,
+        form,
+        fieldset,
+        legend,
+        input,
+        button,
+        textarea,
+        menu {
+            margin: 0;
+            padding: 0;
+            font-family: "楷体";
+        }
+
+        header,
+        footer,
+        section,
+        article,
+        aside,
+        nav,
+        hgroup,
+        address,
+        figure,
+        figcaption,
+        menu,
+        details {
+            display: block;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        caption,
+        th {
+            text-align: left;
+            font-weight: normal;
+        }
+
+        html,
+        body,
+        fieldset,
+        img,
+        iframe,
+        abbr {
+            border: 0;
+        }
+
+        i,
+        cite,
+        em,
+        var,
+        address,
+        dfn {
+            font-style: normal;
+        }
+
+        [hidefocus],
+        summary {
+            outline: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        small {
+            font-size: 100%;
+        }
+
+        sup,
+        sub {
+            font-size: 83%;
+        }
+
+        pre,
+        code,
+        kbd,
+        samp {
+            font-family: inherit;
+        }
+
+        q:before,
+        q:after {
+            content: none;
+        }
+
+        textarea {
+            overflow: auto;
+            resize: none;
+        }
+
+        label,
+        summary {
+            cursor: default;
+        }
+
+        a,
+        button {
+            cursor: pointer;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        em,
+        strong,
+        b {
+            font-weight: bold;
+        }
+
+        del,
+        ins,
+        u,
+        s,
+        a,
+        a:hover {
+            text-decoration: none;
+        }
+
+        body,
+        textarea,
+        input,
+        button,
+        select,
+        keygen,
+        legend {
+            font: 12px/1.14 arial, \5b8b\4f53;
+            color: #333;
+            outline: 0;
+        }
+
+        body {
+            background: #fff;
+        }
+
+        a,
+        a:hover {
+            color: #333;
+        }
+
+        * {
+            margin: 0 at;
+        }
+
+        .fl {
+            float: left;
+        }
+
+        .fr {
+            float: right;
+        }
+
+        .inner {
+            width: 1102px;
+            position: relative;
+            margin: auto;
+        }
+
+        .title {
+            text-align: center;
+            padding-top: 60px;
+            padding-bottom: 70px;
+        }
+
+        .sup-tit {
+            line-height: 60px;
+            font-size: 54px;
+            color: #311759;
+        }
+
+        .sub-tit {
+            line-height: 30px;
+            font-size: 19px;
+            color: #311759;
+            font-family: Arial, Helvetica, sans-serif;
+            letter-spacing: 6px;
+            padding-bottom: 20px;
+        }
+
+        /* 侧边 */
+        .m-indexSideBar {
+            position: fixed;
+            top: 62px !important;
+            width: 110px;
+            border: 1px solid #E2DED6;
+            left: 50%;
+            margin-left: -680px;
+            z-index: 98;
+            background: #fff;
+            border-radius: 4px;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .itemr {
+            list-style: none;
+            height: 36px;
+            font-size: 16px;
+            color: #BB3343;
+            text-align: center;
+            line-height: 38px;
+            height: 38px;
+            position: relative;
+            padding: 1px 11px 0;
+            box-sizing: border-box;
+            border-top-right-radius: 4px;
+            border-top-left-radius: 4px;
+            font-weight: 700;
+        }
+
+        .itemr>::after {
+            content: '';
+            display: block;
+            width: 88px;
+            border-bottom: 1px solid #E2DED6;
+            position: absolute;
+            bottom: -1px;
+            left: 11px;
+            z-index: 1;
+        }
+
+        .item1 {
+            background: url(../image/18.webp) bottom no-repeat;
+        }
+
+        .item1::before {
+            content: "";
+            display: block;
+            width: 8px;
+            border-bottom: 2px solid #BB3343;
+            position: absolute;
+            bottom: 18px;
+            left: 85px;
+            z-index: 1;
+            left: 15px;
+        }
+
+        .item1::after {
+            content: '';
+            display: block;
+            width: 8px;
+            border-bottom: 2px solid #BB3343;
+            position: absolute;
+            bottom: 18px;
+            left: 85px;
+            z-index: 1;
+        }
+
+        .itemr>img {
+            position: absolute;
+            top: 2px;
+            left: 12px;
+            width: 30px;
+            height: 30px;
+        }
+
+        .name {
+            vertical-align: middle;
+            display: table-cell;
+            line-height: 14px;
+            font-size: 12px;
+            padding-left: 36px;
+            box-sizing: border-box;
+        }
+
+        .itemr:hover span {
+            color: #BB3343;
+        }
+
+        /*右侧  */
+        .yx-cp-base {
+            position: fixed;
+            bottom: 200px;
+            z-index: 99;
+            right: 0;
+            top: 62px !important;
+        }
+
+        .opens {
+            position: initial;
+            margin-bottom: 3px;
+        }
+
+        .new {
+            display: block;
+            width: 72px;
+            height: 82px;
+            background-color: #fff;
+            color: #666;
+            text-align: center;
+            line-height: 1;
+            cursor: pointer;
+            padding-top: 14px;
+            position: relative;
+        }
+
+        .new>i {
+            height: 29px;
+            width: 28px;
+            display: inline-block;
+            overflow: hidden;
+            vertical-align: top;
+            font-size: 12px;
+            word-spacing: normal;
+            letter-spacing: normal;
+            vertical-align: top;
+            background: url(../image/17.webp) no-repeat;
+            background-position: 0 -363px;
+        }
+
+        .yx-cp-base>a {
+            box-sizing: border-box;
+        }
+
+        .new:hover .ii {
+            background-position: 0 -324px;
+        }
+
+        .new1:hover .i1 {
+            background-position: 0 -455px;
+        }
+
+        .new2:hover i {
+            background-position: 0 -46px;
+        }
+
+        .new>p {
+            line-height: 20px;
+            font-size: 14px;
+            margin: 8px auto 0;
+            position: relative;
+            font-family: "宋体";
+            color: #333;
+        }
+
+        .r-img {
+            height: 140px;
+            width: 72px;
+            background-color: #fff;
+            color: #666;
+            text-align: center;
+            line-height: 1;
+            cursor: pointer;
+            padding-top: 0;
+            position: relative;
+        }
+
+        .r-img>p {
+            line-height: 17px;
+            text-align: center;
+            color: #666;
+            font-family: "宋体";
+        }
+
+        .new:hover p {
+            color: #b4a078;
+        }
+
+        .new1 i {
+            background-position: 0 -527px;
+            height: 26px;
+            width: 26px;
+        }
+
+        .new2 i {
+            height: 31px;
+            width: 32px;
+            background: url(../image/16.webp) no-repeat;
+            background-position: 0 -46px;
+        }
+
+        .new4 i {
+            background-position: 0 -299px;
+            height: 15px;
+            width: 24px;
+        }
+
+        .new4:hover i {
+            background-position: 0 -249px;
+        }
+
+        .ele {
+            width: 400px;
+            height: 220px;
+            position: absolute;
+            right: 62px;
+            top: -68px;
+            line-height: 20px;
+            display: none;
+        }
+
+        .yx-main {
+            width: 370px;
+            height: 220px;
+            background: #FFF;
+            border: 1px solid #EAEAEA;
+            box-shadow: 0 2px 4px 0 #7f7f7f;
+            position: relative;
+        }
+
+        .yx-head {
+            background: url(//yanxuan.nosdn.127.net/86fe9b8317068538cda05d96768a6e17.png?imageView&type=webp) no-repeat;
+            height: 70px;
+            text-align: center;
+            line-height: 70px;
+            font-size: 26px;
+            color: #FFF;
+            margin-top: -1px;
+            margin-left: -1px;
+        }
+
+        .close {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            background: url(//yanxuan-static.nosdn.127.net/hxm/yanxuan-component/p/20170601/style/img/x1/icon-yxclose-s2ee250e88f-c6ae3be3a2.png?imageView&type=webp) no-repeat;
+            background-position: 0 0;
+            height: 10px;
+            width: 10px;
+        }
+
+        .yx {
+            font-size: 14px;
+            color: #999;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .yx-inputWrap {
+            width: 286px;
+            height: 34px;
+            margin: 10px auto 0;
+            position: relative;
+        }
+
+        .yx-inputWrap>input {
+            width: 206px;
+            height: 34px;
+            padding: 5px 10px;
+            font-size: 14px;
+            background: #F8F8F8;
+            border: 1px solid #DDD;
+            border-right: none;
+            box-sizing: border-box;
+            float: left;
+            outline: 0;
+        }
+
+        .dy1 {
+            width: 80px;
+            height: 34px;
+            background-color: #B4A078;
+            font-size: 14px;
+            color: #fff;
+            line-height: 34px;
+            display: inline-block;
+        }
+
+        .yx-foot {
+            margin-top: 31px;
+            overflow: hidden;
+            line-height: 1;
+        }
+
+        .yx-privilege {
+            width: 122px;
+            float: left;
+        }
+
+        .yx-privilege>i {
+            background: url(//yanxuan-static.nosdn.127.net/hxm/yanxuan-component/p/20170601/style/img/x1/icon-yxfixedtool-sb35ce57899-796b48a324.png?imageView&type=webp) 1x, url(//yanxuan-static.nosdn.127.net/hxm/yanxuan-component/p/20170601/style/img/x2/icon-yxfixedtool-sbe99eab8da-724bb92f92.png?imageView&type=webp) 2x no-repeat;
+            background-position: 0 -563px;
+            height: 14px;
+            width: 14px;
+            display: inline-block;
+        }
+
+        .yx-text {
+            font-size: 14px;
+            color: #B4A078;
+            display: inline-block;
+        }
+
+        .new1:hover .ele {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="m-indexSideBar">
+        <li class="itemr item1">
+            热销榜
+        </li>
+        <li class="itemr" style="color:#BB3343;font-weight:bold;">
+            <img src="//yanxuan.nosdn.127.net/d83d6cc58589e7b9540e57809920d961.png" alt="">
+            <span class="name">
+                全站<br>热销榜
+            </span>
+        </li>
+        <li class="itemr" style="color:#333333;font-weight:normal;">
+            <img src="//yanxuan.nosdn.127.net/288d84fe691240d9f87271b293f39b67.png" alt="">
+            <span class="name">
+                居家<br>生活榜
+            </span>
+        </li>
+        <li class="itemr" style="color:#333333;font-weight:normal;">
+            <img src="//yanxuan.nosdn.127.net/2318b65e996e14bc0707880040dfabb0.png" alt="">
+            <span class="name">
+                服饰<br>鞋包榜
+            </span>
+        </li>
+        <li class="itemr" style="color:#333333;font-weight:normal;">
+            <img src="//yanxuan.nosdn.127.net/8ca4557361e2fff394a5a94d0b73f3c6.png" alt="">
+            <span class="name">
+                美食<br>酒水榜
+            </span>
+        </li>
+        <li class="itemr" style="color:#333333;font-weight:normal;">
+            <img src="//yanxuan.nosdn.127.net/270bc2465ac7eed90ada40c92166678b.png" alt="">
+            <span class="name">
+                数码<br>家电榜
+            </span>
+        </li>
+        <li class="itemr" style="color:#333333;font-weight:normal;">
+            <img src="//yanxuan.nosdn.127.net/4723267aef758a7d805bb7c1447fdc44.png" alt="">
+            <span class="name">
+                个护<br>清洁榜
+            </span>
+        </li>
+        <li class="itemr" style="color:#333333;font-weight:normal;">
+            <img src="//yanxuan.nosdn.127.net/eec3af53eb17a4b117043e18ae7c7418.png" alt="">
+            <span class="name">
+                运动<br>旅行榜
+            </span>
+        </li>
+        <li class="itemr" style="color:#333333;font-weight:normal;">
+            <img src="//yanxuan.nosdn.127.net/a94b2f7f7ada813ae9c93f84d3d60d6f.png" alt="">
+            <span class="name">
+                母婴<br>亲子榜
+            </span>
+        </li>
+        <li class="itemr" style="color:#333333;font-weight:normal;">
+            <img src="//yanxuan.nosdn.127.net/9cb33f543dddd54c7cc157d29650dbf4.png" alt="">
+            <span class="name">
+                全球<br>特色榜
+            </span>
+        </li>
+    </ul>
+    <div class="yx-cp-base">
+        <a href="JavaScript:;" class="opens">
+            <img src="https://yanxuan.nosdn.127.net/3d6ac3229bf355fa5c0d21ef8a3036dc.gif" alt="">
+        </a>
+        <a href="JavaScript:;" class="new">
+            <i class="ii"></i>
+            <p>新人有礼</p>
+        </a>
+        <a href="JavaScript:;" class="r-img">
+            <img src="../image/11.png" alt="">
+            <p>扫码领</p>
+            <p style="color: #BC3B3B;">APP1000元</p>
+            <p style="color: #BC3B3B;">新人礼</p>
+        </a>
+        <a href="JavaScript:;" class="new new1">
+            <i class="i1"></i>
+            <p>订阅电子刊</p>
+            <div class="ele">
+                <div class="yx-main">
+                    <div class="yx-head">严选生活美学</div>
+                    <div class="close"></div>
+                    <div class="yx-body">
+                        <div class="yx">订阅电子刊，第一时间获取严选最新资讯</div>
+                        <div class="yx-inputWrap">
+                            <input type="text" placeholder="输入您的电子邮件">
+                            <div class="dy1">立即订阅</div>
+                        </div>
+                    </div>
+                    <div class="yx-foot">
+                        <div class="yx-privilege">
+                            <i class="iw"></i>
+                            <span class="yx-text">专属优惠</span>
+                        </div>
+                        <div class="yx-privilege">
+                            <i class="iw" style="background-position: 0 -24px;"></i>
+                            <span class="yx-text">专属优惠</span>
+                        </div>
+                        <div class="yx-privilege">
+                            <i class="iw" style="background-position: 0 -431px;"></i>
+                            <span class="yx-text">专属优惠</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="JavaScript:;" class="new new2">
+            <i></i>
+            <p>在线客服</p>
+        </a>
+        <a href="JavaScript:;" class="new new4">
+            <i></i>
+            <p>返回顶部</p>
+        </a>
+    </div>
+
+</body>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+    $(".close").click(function () {
+        console.log(1)
+        $(".ele").css("display", "none")
+    })
+    $(".new4").click(function () {
+        $("html,body").animate({ scrollTop: 0 }, 0)
+    })
+</script>
+
+</html>

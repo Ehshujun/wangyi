@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/swiper.min.css">
+    <script src="../js/swiper.min.js"></script>
+    <style>
+        * {
+            margin: 0 auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333 !important;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        .g-bd-list {
+            width: 100%;
+            padding-bottom: 80px;
+            background-color: #f5f5f5;
+        }
+
+        .g-row {
+            width: 1090px;
+            margin: 0 auto;
+            position: relative;
+            background: #fff;
+        }
+
+        .m-crumbs {
+            font-size: 12px;
+            color: #333;
+            line-height: 1;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+
+        .m-crumbs .arrow-right-hollow {
+            margin: 0 5px;
+        }
+
+        .arrow-right-hollow {
+            display: inline-block;
+            height: 11px;
+            width: 5px;
+            background: -webkit-image-set(url(//yanxuan-static.nosdn.127.net/hxm/yanxuan-web/p/20150730/style/img/x1/arrow-s8eb4a167a2-0736acf6d3.png) 1x, url(//yanxuan-static.nosdn.127.net/hxm/yanxuan-web/p/20150730/style/img/x2/arrow-s0b57ac21d9-8e71743ee5.png) 2x) no-repeat;
+            background-position: 0 -1093px;
+
+        }
+
+        .z-cur {
+            color: #999999;
+        }
+
+        /* 轮播图 */
+        .m-focus {
+            width: 1090px;
+            height: 310px;
+            margin-bottom: 30px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+        }
+
+        .swiper-pagination-bullet {
+            outline: 0;
+            border: 1px solid #cecece;
+            background: #fff;
+        }
+
+        .swiper-pagination-bullet-active {
+            box-shadow: 0 0 0 4px #dfcead;
+            background: #a7936e;
+        }
+
+        .swiper-button-white {
+            position: absolute;
+            width: 50px !important;
+            height: 50px !important;
+            top: 130px;
+            z-index: 10;
+            background-color: #D0C4AF;
+            border-radius: 50%;
+            cursor: pointer;
+            opacity: 80;
+            font-size: 30px;
+        }
+
+        .swiper-button-white:hover {
+            background: #b19d79;
+        }
+
+        .swiper-button-white::after {
+            content: '' !important;
+        }
+
+        /* 分类 */
+        .m-goodsArea {
+            padding: 0 40px;
+            position: relative;
+            background-color: #fff;
+        }
+
+        .m-sortBar {
+            margin-top: 10px;
+            border-bottom: 1px solid #eaeaea;
+            overflow: hidden;
+        }
+
+        .category {
+            overflow: hidden;
+            line-height: 1;
+            padding-top: 20px;
+            border-bottom: 1px dashed #dedede;
+        }
+
+        .category .name {
+            font-size: 14px;
+            color: #999;
+            float: left;
+            margin-right: 28px;
+        }
+
+        .categoryGroup {
+            overflow: hidden;
+            float: left;
+            margin-bottom: 4px;
+            width: 930px;
+        }
+
+        .categoryGroup a {
+            float: left;
+            margin-right: 30px;
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+
+        .categoryGroup-active {
+            color: #b4a078 !important;
+        }
+
+        .category1 .name {
+            margin-right: 0 !important;
+        }
+
+        /* 具体分类 */
+        .m-content {
+            overflow: hidden;
+            margin: 0 auto;
+            width: 1010px;
+        }
+
+        .m-Level2Category {
+            padding-top: 30px;
+            display: flow-root;
+        }
+
+        .m-Level2Category>.hd {
+            text-align: center;
+            line-height: 1;
+            margin-bottom: 40px;
+        }
+
+        .m-Level2Category>.hd p {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .title1 {
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 44px;
+        }
+
+        .title2 {
+            font-size: 14px;
+            color: #999;
+            line-height: 1.5;
+        }
+
+        .m-itemList {
+            margin-top: 25px;
+            margin-right: -10px;
+        }
+
+        .m-bd {
+            position: relative;
+            width: 100%;
+        }
+
+        .m-bd .hd {
+            width: 265px;
+            float: left;
+            margin-left: 5px;
+            position: relative;
+            margin-bottom: 8px;
+            overflow: hidden;
+        }
+
+        .m-newProduct {
+            width: 265px !important;
+            margin-right: 10px;
+            position: relative;
+        }
+
+        .showContainer .promBanner {
+            text-align: left;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background: url(https://yanxuan.nosdn.127.net/5e5ba7f9c3805cc8085368ed41aaff65.png) no-repeat;
+            padding-right: 10px;
+        }
+
+        .promBanner .promTitle {
+            max-width: 200px;
+            height: 36px;
+            background: url(https://yanxuan.nosdn.127.net/5e5ba7f9c3805cc8085368ed41aaff65.png) no-repeat;
+            background-size: auto 100%;
+            background-position: right;
+            margin-top: -6px;
+            z-index: 1;
+            padding-left: 8px;
+            padding-right: 14px;
+            float: left;
+            border-top-left-radius: 3px;
+        }
+
+        .promBanner .promTitle .title {
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding-top: 5px;
+        }
+
+        .promBanner .promTitle .subTitle {
+            font-size: 14px;
+            height: 20px;
+            line-height: 14px;
+            margin-top: -1px;
+            font-weight: 700;
+            text-align: center;
+            color: #fff;
+            white-space: nowrap;
+        }
+
+        .m-bd .bd {
+            width: 245px;
+            height: 130px;
+        }
+
+        .m-bd .bd .name {
+            text-align: center;
+            margin-bottom: 4px;
+            height: 20px;
+            line-height: 20px;
+            font-size: 100%;
+            padding: 0 10px;
+            white-space: nowrap;
+            text-align: center;
+        }
+
+        .bd .price {
+            text-align: center;
+            font-size: 13px;
+            line-height: 13px;
+            color: #d4282d;
+        }
+
+        .bd .price span {
+            line-height: 13px;
+            height: 13px;
+            padding: 0;
+        }
+
+        .counterPrice {
+            color: #999;
+            font-size: 12px;
+            text-decoration: line-through;
+        }
+
+        .m-product {
+            line-height: 1;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .m-product hr {
+            display: block;
+            width: 130px;
+            height: 1px;
+            padding: 0;
+            margin: 6px auto 14px;
+            border: 0;
+            border-top: 1px solid #e8e8e8;
+        }
+
+        .desc {
+            color: #999;
+        }
+
+        .m-product h4.name {
+            white-space: nowrap;
+            padding: 0 10px;
+        }
+
+        .m-product .name {
+            margin-bottom: 4px;
+            height: 20px;
+            line-height: 20px;
+        }
+
+        .m-newProduct .f-pic {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .m-bd .m-newProduct .s-pic {
+            opacity: 0;
+            top: 3px;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .imgWarp:hover .s-pic {
+            opacity: 1;
+        }
+
+        .imgWarp:hover+.bd {
+            box-shadow: 1px 1px 8px rgba(0, 0, 0, .2);
+            background-color: #f4f0ea;
+        }
+
+        .slider_item {
+            width: 245px;
+            height: 381px;
+            float: left;
+            min-height: 1px;
+            display: block;
+            margin-right: 10px;
+            margin-bottom: 50px;
+        }
+
+        .slider_item_A {
+            position: relative;
+            margin-bottom: 8px;
+            overflow: hidden;
+            background-color: transparent
+        }
+
+        .slider_item:hover .bd {
+            background: rgb(244, 240, 234);
+        }
+
+        .dd {
+            width: 100%;
+            height: 100%;
+        }
+
+        .dd img {
+            width: 265px;
+            height: 265px;
+            opacity: 1;
+        }
+
+        .slider_item:hover .dd2 {
+            display: block !important;
+        }
+
+        .ss {
+            position: absolute;
+            left: 6px;
+            top: 6px;
+            width: 48px;
+            height: 48px;
+        }
+
+        .low {
+            text-align: left;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            padding-right: 10px;
+            background: url(https://yanxuan.nosdn.127.net/d03b0828cbcc0a64b4c89c8c9c5e6345.png) no-repeat;
+        }
+
+        .lowA {
+            height: 36px;
+            background-repeat: no-repeat;
+            background-size: auto 100%;
+            background-position: right;
+            margin-top: -6px;
+            z-index: 1;
+            padding-left: 8px;
+            padding-right: 14px;
+            float: left;
+            border-top-left-radius: 3px;
+            background: url(https://yanxuan.nosdn.127.net/879ed370f7374379256c00673dab7835.png) no-repeat;
+        }
+
+        .titleA {
+            font-size: 12px;
+            height: 15px;
+            margin-top: 5px;
+            margin-left: 0;
+            padding-top: 0;
+            text-align: center;
+            color:
+                #fff;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .subTitle {
+            font-size: 14px;
+            height: 20px;
+            line-height: 14px;
+            margin-top: -1px;
+            font-weight: 700;
+            text-align: center;
+            color:
+                #fff;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .promContent {
+            color: #fff;
+            text-align: left;
+            overflow: hidden;
+            height: 30px;
+            line-height: 30px;
+            font-size: 12px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            margin-left: 4px;
+            padding-left: 4px;
+            cursor: pointer;
+        }
+
+        .prdtTags {
+            height: 20px;
+            font-size: 0;
+            color: #fff;
+            width: 200px;
+            margin: 0 auto 3px;
+            overflow: hidden;
+        }
+
+        .nameQ {
+            margin-bottom: 4px;
+            height: 20px;
+            padding: 0 10px;
+            line-height: 20px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-align: center;
+            cursor: pointer;
+            color: #333;
+            font-size: 13px;
+        }
+
+        .nameQ span:hover {
+            color: #b4a078;
+        }
+
+        .priceA {
+            font-size: 13px;
+            line-height: 13px;
+            color: #d4282d;
+            padding: 1px 0 9px;
+            text-align: center;
+        }
+
+        .retailPrice {
+            position: relative;
+            top: 1px;
+            line-height: 13px;
+            height: 13px;
+            padding: 0;
+        }
+
+        .m-itemTag {
+            display: inline-block;
+            height: 20px;
+            line-height: 20px;
+            color: #fff !important;
+            padding: 0 5px;
+            font-size: 12px;
+            background-color: #e36844;
+            margin-left: 6px;
+        }
+
+        .new {
+            background-color: #b4a078;
+        }
+
+        .m-itemTag:first-child {
+            margin-left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 头部 -->
+    <div id="header"></div>
+    <!-- 我是分割符 -->
+    <div class="g-bd-list">
+        <div class="g-row">
+            <!-- <div class="m-crumbs " id="j-yx-crumbs" style="display: block;">
+                <a href="/">首页</a>
+                <span class="w-icon-arrow arrow-right-hollow"></span>
+                <span class="z-cur">居家生活</span>
+            </div> -->
+
+            <!-- 轮播图 -->
+            <!-- <div class="m-focus">
+                <div class="swiper-container swiper-container1">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img
+                                src="https://yanxuan.nosdn.127.net/8a37349d42ead5f9fbe9ac5c75610725.jpg?imageView&quality=95&thumbnail=1090x310"
+                                alt=""></div>
+                        <div class="swiper-slide"><img
+                                src="https://yanxuan.nosdn.127.net/03c9343c6186f3dfdb081d18edd4ef05.jpg?imageView&quality=95&thumbnail=1090x310"
+                                alt=""></div>
+                        <div class="swiper-slide"><img
+                                src="https://yanxuan.nosdn.127.net/1a2694ef5b5a402bffd9f156633d7cc9.jpg?imageView&quality=95&thumbnail=1090x310"
+                                alt=""></div>
+                        <div class="swiper-slide"><img
+                                src="https://yanxuan.nosdn.127.net/e8e237725feead8f410a8eb923baed46.jpg?imageView&quality=95&thumbnail=1090x310"
+                                alt=""></div>
+                    </div>
+                    <div class="swiper-pagination swiper-pagination-white"></div>
+                    <div class="swiper-button-next swiper-button-white">&#8250;</div>
+                    <div class="swiper-button-prev swiper-button-white">&#8249;</div>
+                </div>
+            </div> -->
+
+            <!-- 分类 -->
+            <!-- <div class="m-goodsArea">
+                <div class="m-sortBar">
+                    <div class="category">
+                        <span class="name">分类:</span>
+                        <div class="categoryGroup">
+                            <a class="categoryGroup-active" href="">全部</a>
+                        </div>
+                    </div>
+                    <div class="category category1">
+                        <span class="name">配送地区:</span>
+                        <div class="categoryGroup">
+                            <a class="categoryGroup-active" href="">全部</a>
+                        </div>
+                    </div>
+                    <div class="category">
+                        <span class="name">排序:</span>
+                        <div class="categoryGroup">
+                            <a class="categoryGroup-active" href="">默认</a>
+                            <a class="categoryGroup-active" href="">价格</a>
+                            <a class="categoryGroup-active" href="">上架时间</a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+
+            <!-- 大块分类 -->
+            <!-- <div class="m-content">
+                <div class="m-Level2Category">
+                    <div class="hd">
+                        <p class="title1">秋冬好物</p>
+                        <p class="title2">秋冬好物</p>
+                    </div>
+                    <div class="m-itemList">
+                        <div class="m-bd">
+                            <div class="slider_item">
+                                <div class="slider_item_A">
+                                    <a class="aaA">
+                                        <div class="dd">
+                                            <img src="https://yanxuan-item.nosdn.127.net/6cd5a13a318239beab2f50b5dd9fdfae.png?type=webp&quality=95&thumbnail=265x265&imageView"
+                                                alt="">
+                                        </div>
+                                        <div class="dd2" style="display: none">
+                                            <img src="https://yanxuan-item.nosdn.127.net/e872e0f5bb0221cfc549eb3afe08ee07.jpg?type=webp&quality=95&thumbnail=265x265&imageView"
+                                                alt="" style="position: absolute; top: 0;">
+                                        </div>
+                                        <img src="https://yanxuan.nosdn.127.net/bf43c8b8b8c205b14e3ac27021e04394.png"
+                                            alt="" class="ss">
+                                        <div class="low">
+                                            <div class="lowA">
+                                                <div class="titleA">
+                                                    <span>新品粉丝价</span>
+                                                </div>
+                                                <div class="subTitle">
+                                                    <span style="vertical-align:middle;">¥11.9</span>
+                                                </div>
+                                            </div>
+                                            <div class="promContent">11月2日 0点开抢</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="bd" >
+                                    <div class="prdtTags" >
+                                        <span class="m-itemTag ">定金购</span>
+                                        <span class="m-itemTag new">新品</span>
+                                    </div>
+                                    <h4 class="name">
+                                        <a href="">
+                                            <span></span>
+                                            <span></span>
+                                            <span>可水洗抗菌除螨电热毯</span>
+                                        </a>
+                                    </h4>
+                                    <p class="price" style="display:block;">
+                                        <span></span>
+                                        <span>¥335</span>
+                                        <span class="counterPrice">￥439</span>
+                                        <span></span>
+                                    </p>
+                                    <div class="m-product">
+                                        <hr>
+                                        <p class="desc">可水洗电热毯，双开关独立控温</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+
+        </div>
+    </div>
+
+    <!-- 侧边 -->
+    <div id="bian"></div>
+
+    <!-- 底部 -->
+    <div id="footer"></div>
+</body>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/jujia.js"></script>
+<script>
+    $("#header").load("./header.html")
+    $("#bian").load("./bian.html")
+    $("#footer").load("./footer.html")
+
+
+</script>
+
+</html>
